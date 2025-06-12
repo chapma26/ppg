@@ -1,13 +1,10 @@
 import { defineConfig } from 'astro/config';
-import node from '@astrojs/node';
+import awsAmplify from 'astro-aws-amplify';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  integrations: [],
   output: 'server',
-  adapter: node({
-    mode: 'standalone'
-  }),
+  adapter: awsAmplify(),
   vite: {
     plugins: [tailwindcss()],
   },
