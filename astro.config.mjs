@@ -8,7 +8,7 @@ export default defineConfig({
   adapter: awsAmplify(),
   vite: {
     ssr: {
-      noExternal: ['dotenv']
+      noExternal: ['dotenv', '@astrojs/internal-helpers']
     }
   }
 });
