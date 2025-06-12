@@ -1,14 +1,9 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import awsAmplify from 'astro-aws-amplify';
+import aws from '@astrojs/aws';
 
 export default defineConfig({
   integrations: [tailwind()],
   output: 'server',
-  adapter: awsAmplify(),
-  vite: {
-    ssr: {
-      noExternal: ['dotenv', '@astrojs/internal-helpers']
-    }
-  }
+  adapter: aws(),
 });
