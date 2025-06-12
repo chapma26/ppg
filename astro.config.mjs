@@ -6,4 +6,9 @@ export default defineConfig({
   integrations: [tailwind()],
   output: 'server',
   adapter: awsAmplify(),
+  vite: {
+    ssr: {
+      noExternal: ['dotenv']
+    }
+  }
 });
