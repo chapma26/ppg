@@ -142,6 +142,9 @@ const events = parseEvents();
           // Open email client for appointment events
           if (info.event.title.includes('Appointment Only')) {
             window.open('mailto:paducahporchgoose@gmail.com?subject=Appointment Request&body=Hi! I would like to schedule an appointment to visit your shop during the appointment-only period.', '_blank');
+          } else {
+            // For all other events, go to day view
+            calendar.changeView('dayGridDay', info.event.startStr);
           }
         }
       });
