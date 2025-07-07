@@ -145,11 +145,11 @@ const events = parseEvents();
         headerToolbar: window.innerWidth < 768 ? {
           left: 'prev,next',
           center: 'title',
-          right: 'dayGridMonth,dayGridDay'
+          right: ''
         } : {
           left: 'prev,next today',
           center: 'title',
-          right: 'dayGridMonth,dayGridDay'
+          right: ''
         },
         height: 'auto',
         events: JSON.parse(document.getElementById('calendar-events').textContent),
@@ -159,7 +159,16 @@ const events = parseEvents();
         displayEventTime: false,
         aspectRatio: window.innerWidth < 768 ? 1.0 : 1.35,
         dateClick: function(info) {
-          calendar.changeView('dayGridDay', info.dateStr);
+          // Only go to day view if there are events on this date
+          const eventsOnDate = calendar.getEvents().filter(event => {
+            const eventStart = event.start.toDateString();
+            const clickedDate = info.date.toDateString();
+            return eventStart === clickedDate;
+          });
+          
+          if (eventsOnDate.length > 0) {
+            calendar.changeView('dayGridDay', info.dateStr);
+          }
         },
         eventDidMount: function(info) {
           // Add tooltip with full event title
@@ -173,6 +182,39 @@ const events = parseEvents();
             const action = isMobile ? 'Click to call for appointment' : 'Click to email for appointment';
             info.el.setAttribute('title', info.event.title + ' - ' + action);
           }
+        },
+        datesSet: function(info) {
+          // Update header toolbar based on current view
+          const isMobile = window.innerWidth < 768;
+          const currentView = calendar.view.type;
+          
+          let rightButtons = '';
+          if (currentView === 'dayGridDay') {
+            // In day view, show back button
+            rightButtons = 'backToMonth';
+          }
+          
+          const newHeaderToolbar = isMobile ? {
+            left: 'prev,next',
+            center: 'title',
+            right: rightButtons
+          } : {
+            left: 'prev,next today',
+            center: 'title',
+            right: rightButtons
+          };
+          
+          setTimeout(() => {
+            calendar.setOption('headerToolbar', newHeaderToolbar);
+            calendar.setOption('customButtons', {
+              backToMonth: {
+                text: 'Back',
+                click: function() {
+                  calendar.changeView('dayGridMonth');
+                }
+              }
+            });
+          }, 0);
         },
         eventClick: function(info) {
           // Open email client for appointment events
