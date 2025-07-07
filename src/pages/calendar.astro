@@ -1,5 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Parse events from environment variable
+function parseEvents() {
+  const eventsString = import.meta.env.CALENDAR_EVENTS || '';
+  if (!eventsString) return [];
+
+  return eventsString.split(',').map(eventStr => {
+    const [title, start, end, backgroundColor] = eventStr.split('|');
+    return {
+      title: title.trim(),
+      start: start.trim(),
+      end: end.trim(),
+      backgroundColor: backgroundColor.trim(),
+      borderColor: backgroundColor.trim()
+    };
+  });
+}
+
+const events = parseEvents();
 ---
 
 <Layout title="Calendar - Paducah Porch Goose" description="Shop hours and availability calendar">
@@ -11,14 +30,14 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="bg-white rounded-lg shadow-lg p-6">
         <div id="calendar"></div>
-        
+
         <!-- Legend -->
-        <div class="mt-6 pt-6 border-t border-gray-200">
+        <div class="hide mt-6 pt-6 border-t border-gray-200">
           <h3 class="text-lg font-semibold text-gray-800 mb-3">Legend</h3>
           <div class="flex flex-wrap gap-4">
             <div class="flex items-center">
               <div class="w-4 h-4 bg-green-500 rounded mr-2"></div>
-              <span class="text-sm text-gray-600">Open Weekend</span>
+              <span class="text-sm text-gray-600">Open Shop</span>
             </div>
             <div class="flex items-center">
               <div class="w-4 h-4 bg-blue-500 rounded mr-2"></div>
@@ -36,41 +55,52 @@ import Layout from '../layouts/Layout.astro';
   :global(.fc) {
     font-family: inherit;
   }
-  
+
   :global(.fc-header-toolbar) {
     margin-bottom: 1.5em;
   }
-  
+
   :global(.fc-button-primary) {
     background-color: #3b82f6;
     border-color: #3b82f6;
     color: white;
   }
-  
+
   :global(.fc-button-primary:hover) {
     background-color: #2563eb;
     border-color: #2563eb;
   }
-  
+
   :global(.fc-day-today) {
     background-color: #dbeafe !important;
   }
-  
+
   :global(.fc-event-title) {
     font-weight: 500;
   }
-  
+
   :global(.fc-daygrid-day-number) {
     font-weight: 500;
     padding: 8px;
   }
-  
+
   :global(.fc-col-header-cell) {
     background-color: #f9fafb;
     font-weight: 600;
     color: #374151;
   }
+
+  :global(.fc-daygrid-event) {
+    white-space: normal !important;
+    overflow: visible !important;
+    padding: 2px 4px !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+  }
 </style>
+
+<!-- Pass events data to client -->
+<script id="calendar-events" type="application/json" set:html={JSON.stringify(events)}></script>
 
 <script>
   import { Calendar } from '@fullcalendar/core';
@@ -79,7 +109,7 @@ import Layout from '../layouts/Layout.astro';
 
   document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendar');
-    
+
     if (calendarEl) {
       const calendar = new Calendar(calendarEl, {
         plugins: [dayGridPlugin, interactionPlugin],
@@ -87,38 +117,35 @@ import Layout from '../layouts/Layout.astro';
         headerToolbar: {
           left: 'prev,next today',
           center: 'title',
-          right: ''
+          right: 'dayGridMonth,dayGridDay'
         },
         height: 'auto',
-        events: [
-          // Sample events - you can modify these
-          {
-            title: 'Open Weekend',
-            start: '2025-01-18',
-            end: '2025-01-20',
-            backgroundColor: '#10b981',
-            borderColor: '#10b981'
-          },
-          {
-            title: 'Appointment Only',
-            start: '2025-01-22',
-            end: '2025-01-25',
-            backgroundColor: '#3b82f6',
-            borderColor: '#3b82f6'
-          },
-          {
-            title: 'Open Weekend',
-            start: '2025-01-25',
-            end: '2025-01-27',
-            backgroundColor: '#10b981',
-            borderColor: '#10b981'
-          }
-        ],
+        events: JSON.parse(document.getElementById('calendar-events').textContent),
         eventDisplay: 'block',
         dayMaxEvents: 3,
-        moreLinkClick: 'popover'
+        moreLinkClick: 'popover',
+        displayEventTime: false,
+        dateClick: function(info) {
+          calendar.changeView('dayGridDay', info.dateStr);
+        },
+        eventDidMount: function(info) {
+          // Add tooltip with full event title
+          info.el.setAttribute('title', info.event.title);
+          
+          // Make appointment events clickable
+          if (info.event.title.includes('Appointment Only')) {
+            info.el.style.cursor = 'pointer';
+            info.el.setAttribute('title', info.event.title + ' - Click to schedule an appointment');
+          }
+        },
+        eventClick: function(info) {
+          // Open email client for appointment events
+          if (info.event.title.includes('Appointment Only')) {
+            window.open('mailto:paducahporchgoose@gmail.com?subject=Appointment Request&body=Hi! I would like to schedule an appointment to visit your shop during the appointment-only period.', '_blank');
+          }
+        }
       });
-      
+
       calendar.render();
     }
   });
