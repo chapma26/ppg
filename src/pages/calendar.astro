@@ -142,7 +142,11 @@ const events = parseEvents();
       const calendar = new Calendar(calendarEl, {
         plugins: [dayGridPlugin, interactionPlugin],
         initialView: 'dayGridMonth',
-        headerToolbar: {
+        headerToolbar: window.innerWidth < 768 ? {
+          left: 'prev,next',
+          center: 'title',
+          right: 'dayGridMonth,dayGridDay'
+        } : {
           left: 'prev,next today',
           center: 'title',
           right: 'dayGridMonth,dayGridDay'
