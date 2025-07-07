@@ -9,6 +9,8 @@ frontend:
     build:
       commands:
         - pnpm run build
+        - echo "Static build completed successfully"
+        - ls -la dist/
   artifacts:
     baseDirectory: dist
     files:
@@ -17,3 +19,4 @@ frontend:
     paths:
       - .pnpm-store/**/*
       - node_modules/**/*
+appType: static
