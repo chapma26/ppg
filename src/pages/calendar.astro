@@ -97,6 +97,34 @@ const events = parseEvents();
     font-size: 13px !important;
     line-height: 1.2 !important;
   }
+  
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    :global(.fc-daygrid-day-number) {
+      font-size: 14px !important;
+      padding: 4px !important;
+    }
+    
+    :global(.fc-daygrid-event) {
+      font-size: 11px !important;
+      padding: 1px 2px !important;
+      margin: 1px 0 !important;
+    }
+    
+    :global(.fc-button) {
+      padding: 8px 12px !important;
+      font-size: 14px !important;
+    }
+    
+    :global(.fc-toolbar-title) {
+      font-size: 1.25rem !important;
+    }
+    
+    :global(.fc-col-header-cell) {
+      padding: 8px 2px !important;
+      font-size: 12px !important;
+    }
+  }
 </style>
 
 <!-- Pass events data to client -->
@@ -122,9 +150,10 @@ const events = parseEvents();
         height: 'auto',
         events: JSON.parse(document.getElementById('calendar-events').textContent),
         eventDisplay: 'block',
-        dayMaxEvents: 3,
+        dayMaxEvents: window.innerWidth < 768 ? 2 : 3,
         moreLinkClick: 'popover',
         displayEventTime: false,
+        aspectRatio: window.innerWidth < 768 ? 1.0 : 1.35,
         dateClick: function(info) {
           calendar.changeView('dayGridDay', info.dateStr);
         },
