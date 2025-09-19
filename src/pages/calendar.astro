@@ -32,36 +32,103 @@ const events = [
 
 let start_date = new Date().toISOString().split('T')[0];
 
-const events = [
+let events = [  
   {
     title: 'By appt only',
     start: start_date,
-    end: '2025-09-13',
+    end: '2025-09-20',
     backgroundColor: COLOR_APPT_ONLY,
     borderColor: COLOR_APPT_ONLY
   },
   {
     title: 'Open 9am - 2pm',
-    start: '2025-09-13',
-    end: '2025-09-14',
+    start: '2025-09-20',
+    end: '2025-09-21',
     backgroundColor: COLOR_OPEN,
     borderColor: COLOR_OPEN
   },
   {
     title: 'Open 11am - 3pm',
-    start: '2025-09-14',
-    end: '2025-09-15',
+    start: '2025-09-21',
+    end: '2025-09-22',
     backgroundColor: COLOR_OPEN,
     borderColor: COLOR_OPEN
   },
   {
     title: 'By appt only',
-    start: '2025-09-15',
-    end: '2025-09-20',
+    start: '2025-09-22',
+    end: '2025-09-27',
+    backgroundColor: COLOR_APPT_ONLY,
+    borderColor: COLOR_APPT_ONLY
+  },
+  {
+    title: 'Open 9am - 2pm',
+    start: '2025-09-27',
+    end: '2025-09-28',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'Open 11am - 3pm',
+    start: '2025-09-28',
+    end: '2025-09-29',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'By appt only',
+    start: '2025-09-29',
+    end: '2025-10-04',
+    backgroundColor: COLOR_APPT_ONLY,
+    borderColor: COLOR_APPT_ONLY
+  },
+  {
+    title: 'Open 9am - 2pm',
+    start: '2025-10-04',
+    end: '2025-10-05',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'Open 11am - 3pm',
+    start: '2025-10-05',
+    end: '2025-10-06',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'By appt only',
+    start: '2025-10-06',
+    end: '2025-10-11',
     backgroundColor: COLOR_APPT_ONLY,
     borderColor: COLOR_APPT_ONLY
   },
 ]
+
+// Filter out past events and adjust ongoing events
+const today = new Date();
+today.setHours(0, 0, 0, 0); // Set to start of day for accurate comparison
+
+events = events.filter(event => {
+  const startDate = new Date(event.start);
+  const endDate = new Date(event.end);
+  endDate.setHours(0, 0, 0, 0);
+
+  // Remove only if end date is BEFORE today
+  return !(endDate < today);
+}).map(event => {
+  const startDate = new Date(event.start);
+  startDate.setHours(0, 0, 0, 0);
+
+  // If event started in the past but ends in the future, update start to today
+  if (startDate < today) {
+    return {
+      ...event,
+      start: start_date
+    };
+  }
+  return event;
+});
 ---
 
 <Layout title="Calendar - Paducah Porch Goose" description="Shop hours and availability calendar">
