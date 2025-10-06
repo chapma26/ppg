@@ -32,76 +32,174 @@ const events = [
 
 let start_date = new Date().toISOString().split('T')[0];
 
-let events = [  
-  {
-    title: 'By appt only',
-    start: start_date,
-    end: '2025-09-20',
-    backgroundColor: COLOR_APPT_ONLY,
-    borderColor: COLOR_APPT_ONLY
-  },
-  {
-    title: 'Open 9am - 2pm',
-    start: '2025-09-20',
-    end: '2025-09-21',
-    backgroundColor: COLOR_OPEN,
-    borderColor: COLOR_OPEN
-  },
-  {
-    title: 'Open 11am - 3pm',
-    start: '2025-09-21',
-    end: '2025-09-22',
-    backgroundColor: COLOR_OPEN,
-    borderColor: COLOR_OPEN
-  },
-  {
-    title: 'By appt only',
-    start: '2025-09-22',
-    end: '2025-09-27',
-    backgroundColor: COLOR_APPT_ONLY,
-    borderColor: COLOR_APPT_ONLY
-  },
-  {
-    title: 'Open 9am - 2pm',
-    start: '2025-09-27',
-    end: '2025-09-28',
-    backgroundColor: COLOR_OPEN,
-    borderColor: COLOR_OPEN
-  },
-  {
-    title: 'Open 11am - 3pm',
-    start: '2025-09-28',
-    end: '2025-09-29',
-    backgroundColor: COLOR_OPEN,
-    borderColor: COLOR_OPEN
-  },
-  {
-    title: 'By appt only',
-    start: '2025-09-29',
-    end: '2025-10-04',
-    backgroundColor: COLOR_APPT_ONLY,
-    borderColor: COLOR_APPT_ONLY
-  },
-  {
-    title: 'Open 9am - 2pm',
-    start: '2025-10-04',
-    end: '2025-10-05',
-    backgroundColor: COLOR_OPEN,
-    borderColor: COLOR_OPEN
-  },
-  {
-    title: 'Open 11am - 3pm',
-    start: '2025-10-05',
-    end: '2025-10-06',
-    backgroundColor: COLOR_OPEN,
-    borderColor: COLOR_OPEN
-  },
+let events = [
   {
     title: 'By appt only',
     start: '2025-10-06',
     end: '2025-10-11',
     backgroundColor: COLOR_APPT_ONLY,
     borderColor: COLOR_APPT_ONLY
+  },
+  {
+    title: 'Open 9am - 2pm',
+    start: '2025-10-11',
+    end: '2025-10-12',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'Open 11am - 3pm',
+    start: '2025-10-12',
+    end: '2025-10-13',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'By appt only',
+    start: '2025-10-13',
+    end: '2025-10-18',
+    backgroundColor: COLOR_APPT_ONLY,
+    borderColor: COLOR_APPT_ONLY
+  },
+  {
+    title: 'Open 9am - 2pm',
+    start: '2025-10-18',
+    end: '2025-10-19',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'Open 11am - 3pm',
+    start: '2025-10-19',
+    end: '2025-10-20',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'By appt only',
+    start: '2025-10-20',
+    end: '2025-10-25',
+    backgroundColor: COLOR_APPT_ONLY,
+    borderColor: COLOR_APPT_ONLY
+  },
+  {
+    title: 'Open 9am - 2pm',
+    start: '2025-10-25',
+    end: '2025-10-26',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'Open 11am - 3pm',
+    start: '2025-10-26',
+    end: '2025-10-27',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'By appt only',
+    start: '2025-10-27',
+    end: '2025-11-01',
+    backgroundColor: COLOR_APPT_ONLY,
+    borderColor: COLOR_APPT_ONLY
+  },
+  {
+    title: 'Open 9am - 2pm',
+    start: '2025-11-01',
+    end: '2025-11-02',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'Open 11am - 3pm',
+    start: '2025-11-02',
+    end: '2025-11-03',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'By appt only',
+    start: '2025-11-03',
+    end: '2025-11-07',
+    backgroundColor: COLOR_APPT_ONLY,
+    borderColor: COLOR_APPT_ONLY
+  },
+  {
+    title: 'Closed',
+    start: '2025-11-07',
+    end: '2025-11-10',
+    backgroundColor: COLOR_CLOSED,
+    borderColor: COLOR_CLOSED
+  },
+  {
+    title: 'By appt only',
+    start: '2025-11-10',
+    end: '2025-11-15',
+    backgroundColor: COLOR_APPT_ONLY,
+    borderColor: COLOR_APPT_ONLY
+  },
+  {
+    title: 'Open 9am - 2pm',
+    start: '2025-11-15',
+    end: '2025-11-16',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'Open 11am - 3pm',
+    start: '2025-11-16',
+    end: '2025-11-17',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'By appt only',
+    start: '2025-11-17',
+    end: '2025-11-22',
+    backgroundColor: COLOR_APPT_ONLY,
+    borderColor: COLOR_APPT_ONLY
+  },
+  {
+    title: 'Open 9am - 2pm',
+    start: '2025-11-22',
+    end: '2025-11-23',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'Open 11am - 3pm',
+    start: '2025-11-23',
+    end: '2025-11-24',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'By appt only',
+    start: '2025-11-24',
+    end: '2025-11-25',
+    backgroundColor: COLOR_APPT_ONLY,
+    borderColor: COLOR_APPT_ONLY
+  },
+  {
+    title: 'Closed',
+    start: '2025-11-25',
+    end: '2025-11-29',
+    backgroundColor: COLOR_CLOSED,
+    borderColor: COLOR_CLOSED
+  },
+  {
+    title: 'Open 9am - 5pm',
+    start: '2025-11-29',
+    end: '2025-11-30',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
+  },
+  {
+    title: 'Open 11am - 3pm',
+    start: '2025-11-30',
+    end: '2025-11-31',
+    backgroundColor: COLOR_OPEN,
+    borderColor: COLOR_OPEN
   },
 ]
 
