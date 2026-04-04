@@ -105,20 +105,22 @@ let events = [
   { title: 'Open 11am - 3pm', start: '2026-06-28', end: '2026-06-29', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
 ]
 
+// Parse date string as local time (not UTC)
+function parseLocal(dateStr: string) {
+  return new Date(dateStr + 'T00:00:00');
+}
+
 // Filter out past events and adjust ongoing events
 const today = new Date();
-today.setHours(0, 0, 0, 0); // Set to start of day for accurate comparison
+today.setHours(0, 0, 0, 0);
 
 events = events.filter(event => {
-  const startDate = new Date(event.start);
-  const endDate = new Date(event.end);
-  endDate.setHours(0, 0, 0, 0);
+  const endDate = parseLocal(event.end);
 
   // Remove if end date is on or before today (end dates are exclusive)
-  return !(endDate <= today);
+  return endDate > today;
 }).map(event => {
-  const startDate = new Date(event.start);
-  startDate.setHours(0, 0, 0, 0);
+  const startDate = parseLocal(event.start);
 
   // If event started in the past but ends in the future, update start to today
   if (startDate < today) {
