@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm i -g pnpm
+        - npm i -g pnpm@9
         - pnpm config set store-dir .pnpm-store
         - rm -rf node_modules
         - pnpm install
