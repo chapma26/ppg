@@ -5,6 +5,7 @@ frontend:
       commands:
         - npm i -g pnpm
         - pnpm config set store-dir .pnpm-store
+        - rm -rf node_modules
         - pnpm install
     build:
       commands:
