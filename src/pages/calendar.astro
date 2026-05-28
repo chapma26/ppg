@@ -55,6 +55,27 @@ let events = [
     backgroundColor: COLOR_CLOSED,
     borderColor: COLOR_CLOSED
   },
+  {
+    title: 'Closed',
+    start: '2026-06-05',
+    end: '2026-06-08',
+    backgroundColor: COLOR_CLOSED,
+    borderColor: COLOR_CLOSED
+  },
+  {
+    title: 'Closed',
+    start: '2026-06-28',
+    end: '2026-07-06',
+    backgroundColor: COLOR_CLOSED,
+    borderColor: COLOR_CLOSED
+  },
+  {
+    title: 'Closed',
+    start: '2026-08-26',
+    end: '2026-09-07',
+    backgroundColor: COLOR_CLOSED,
+    borderColor: COLOR_CLOSED
+  },
 
   // Appointment only M-F
   { title: 'By appt only', start: '2026-03-20', end: '2026-03-21', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
@@ -68,11 +89,26 @@ let events = [
   { title: 'By appt only', start: '2026-05-11', end: '2026-05-13', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
   { title: 'By appt only', start: '2026-05-19', end: '2026-05-23', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
   { title: 'By appt only', start: '2026-05-25', end: '2026-05-30', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
-  { title: 'By appt only', start: '2026-06-01', end: '2026-06-06', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-06-01', end: '2026-06-05', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
   { title: 'By appt only', start: '2026-06-08', end: '2026-06-13', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
   { title: 'By appt only', start: '2026-06-15', end: '2026-06-20', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
   { title: 'By appt only', start: '2026-06-22', end: '2026-06-27', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
-  { title: 'By appt only', start: '2026-06-29', end: '2026-07-01', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-07-07', end: '2026-07-11', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-07-13', end: '2026-07-18', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-07-20', end: '2026-07-25', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-07-27', end: '2026-08-01', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-08-03', end: '2026-08-08', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-08-10', end: '2026-08-15', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-08-17', end: '2026-08-22', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-08-24', end: '2026-08-26', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-09-07', end: '2026-09-12', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-09-14', end: '2026-09-19', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-09-21', end: '2026-09-26', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-09-28', end: '2026-10-03', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-10-05', end: '2026-10-10', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-10-12', end: '2026-10-17', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-10-19', end: '2026-10-24', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
+  { title: 'By appt only', start: '2026-10-26', end: '2026-10-31', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
 
   // Saturdays open 9am - 2pm (except Mar 21 closed, May 16 closed)
   { title: 'Open 9am - 2pm', start: '2026-03-28', end: '2026-03-29', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
@@ -83,10 +119,20 @@ let events = [
   { title: 'Open 10:30am - 1pm', start: '2026-05-09', end: '2026-05-10', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
   { title: 'Open 9am - 2pm', start: '2026-05-23', end: '2026-05-24', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
   { title: 'Open 9am - 2pm', start: '2026-05-30', end: '2026-05-31', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
-  { title: 'Open 9am - 2pm', start: '2026-06-06', end: '2026-06-07', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
   { title: 'Open 9am - 2pm', start: '2026-06-13', end: '2026-06-14', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
   { title: 'Open 9am - 2pm', start: '2026-06-20', end: '2026-06-21', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
   { title: 'Open 9am - 2pm', start: '2026-06-27', end: '2026-06-28', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-07-06', end: '2026-07-07', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-07-11', end: '2026-07-12', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-07-18', end: '2026-07-19', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-07-25', end: '2026-07-26', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-08-01', end: '2026-08-02', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-08-08', end: '2026-08-09', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-08-15', end: '2026-08-16', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-08-22', end: '2026-08-23', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-09-12', end: '2026-09-13', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-09-19', end: '2026-09-20', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 9am - 2pm', start: '2026-09-26', end: '2026-09-27', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
 
   // Sundays open 11am - 3pm (except May 17 closed)
   { title: 'Open 11am - 3pm', start: '2026-03-22', end: '2026-03-23', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
@@ -99,10 +145,18 @@ let events = [
   { title: 'By appt only', start: '2026-05-10', end: '2026-05-11', backgroundColor: COLOR_APPT_ONLY, borderColor: COLOR_APPT_ONLY },
   { title: 'Open 11am - 3pm', start: '2026-05-24', end: '2026-05-25', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
   { title: 'Open 11am - 3pm', start: '2026-05-31', end: '2026-06-01', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
-  { title: 'Open 11am - 3pm', start: '2026-06-07', end: '2026-06-08', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
   { title: 'Open 11am - 3pm', start: '2026-06-14', end: '2026-06-15', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
   { title: 'Open 11am - 3pm', start: '2026-06-21', end: '2026-06-22', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
-  { title: 'Open 11am - 3pm', start: '2026-06-28', end: '2026-06-29', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 11am - 3pm', start: '2026-07-12', end: '2026-07-13', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 11am - 3pm', start: '2026-07-19', end: '2026-07-20', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 11am - 3pm', start: '2026-07-26', end: '2026-07-27', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 11am - 3pm', start: '2026-08-02', end: '2026-08-03', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 11am - 3pm', start: '2026-08-09', end: '2026-08-10', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 11am - 3pm', start: '2026-08-16', end: '2026-08-17', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 11am - 3pm', start: '2026-08-23', end: '2026-08-24', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 11am - 3pm', start: '2026-09-13', end: '2026-09-14', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 11am - 3pm', start: '2026-09-20', end: '2026-09-21', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
+  { title: 'Open 11am - 3pm', start: '2026-09-27', end: '2026-09-28', backgroundColor: COLOR_OPEN, borderColor: COLOR_OPEN },
 ]
 
 // Parse date string as local time (not UTC)
@@ -187,6 +241,14 @@ events = events.filter(event => {
     background-color: #dbeafe !important;
   }
 
+  :global(.fc-day-disabled) {
+    background-color: #f3f4f6 !important;
+  }
+
+  :global(.fc-day-disabled .fc-daygrid-day-number) {
+    color: #d1d5db !important;
+  }
+
   :global(.fc-event-title) {
     font-weight: 500;
   }
@@ -251,9 +313,15 @@ events = events.filter(event => {
     const calendarEl = document.getElementById('calendar');
 
     if (calendarEl) {
+      const todayDate = new Date();
+      const todayStr = todayDate.getFullYear() + '-' +
+        String(todayDate.getMonth() + 1).padStart(2, '0') + '-' +
+        String(todayDate.getDate()).padStart(2, '0');
+
       const calendar = new Calendar(calendarEl, {
         plugins: [dayGridPlugin, interactionPlugin],
         initialView: 'dayGridMonth',
+        validRange: { start: todayStr },
         headerToolbar: window.innerWidth < 768 ? {
           left: 'prev,next',
           center: 'title',
