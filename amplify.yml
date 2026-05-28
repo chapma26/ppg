@@ -18,5 +18,4 @@ frontend:
   cache:
     paths:
       - .pnpm-store/**/*
-      - node_modules/**/*
 appType: static
